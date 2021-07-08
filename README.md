@@ -2,7 +2,9 @@
 
 ![🎥 Movies & TV Series DB! 🎥 - React](https://i.ibb.co/ZfV1yd7/movies-db.png)
 
-### [Live Site](https://moviesdbreact.netlify.app/)
+### [Live Site](https://moviesdbreact.netlify.app/) 
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ba3bd37d-7987-4c8d-ab58-0398a0b90e15/deploy-status)](https://app.netlify.com/sites/moviesdbreact/deploys)
 
 # Installation
 
