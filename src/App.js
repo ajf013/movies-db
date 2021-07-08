@@ -7,7 +7,6 @@ import Series from "./Pages/Series/Series";
 import Trending from "./Pages/Trending/Trending";
 import Search from "./Pages/Search/Search";
 import { Container } from "@material-ui/core";
-import Footer from "./components /Footer/Footer"
 
 function App() {
   return (
@@ -22,9 +21,8 @@ function App() {
             <Route path="/search" component={Search} />
           </Switch>
         </Container>
-      </div>
+        </div>
       <SimpleBottomNavigation />
-      <Footer />
     </BrowserRouter>
   );
 }
