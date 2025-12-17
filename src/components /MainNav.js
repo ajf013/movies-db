@@ -6,7 +6,7 @@ import TvIcon from "@material-ui/icons/Tv";
 import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 
 const useStyles = makeStyles({
@@ -22,19 +22,15 @@ export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const history = useHistory();
+  const location = useLocation();
   const { theme } = useTheme();
 
   useEffect(() => {
-    if (value === 0) {
-      history.push("/");
-    } else if (value === 1) {
-      history.push("/movies");
-    } else if (value === 2) {
-      history.push("/series");
-    } else if (value === 3) {
-      history.push("/search");
-    }
-  }, [value, history]);
+    if (location.pathname === "/") setValue(0);
+    else if (location.pathname === "/movies") setValue(1);
+    else if (location.pathname === "/series") setValue(2);
+    else if (location.pathname === "/search") setValue(3);
+  }, [location.pathname]);
 
   const navStyle = {
     backgroundColor: theme === 'dark' ? '#2d313a' : '#ffffff',
@@ -52,6 +48,10 @@ export default function SimpleBottomNavigation() {
       value={value}
       onChange={(event, newValue) => {
         setValue(newValue);
+        if (newValue === 0) history.push("/");
+        else if (newValue === 1) history.push("/movies");
+        else if (newValue === 2) history.push("/series");
+        else if (newValue === 3) history.push("/search");
       }}
       showLabels
       className={classes.root}

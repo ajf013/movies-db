@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Genres from "../../components /Genres/Genres"
-import SingleContent from "../../components /SingleContent/SingleContent";
+import AutoPlayCarousel from "../../components /AutoPlayCarousel/AutoPlayCarousel";
 import useGenre from "../../hooks/useGenre";
 import CustomPagination from "../../components /Pagination/CustomPagination";
 import "./Movies.css";
@@ -41,18 +41,7 @@ const Movies = () => {
         setPage={setPage}
       />
       <div className="movies-container">
-        {content &&
-          content.map((c) => (
-            <SingleContent
-              key={c.id}
-              id={c.id}
-              poster={c.poster_path}
-              title={c.title || c.name}
-              date={c.first_air_date || c.release_date}
-              media_type="movie"
-              vote_average={c.vote_average}
-            />
-          ))}
+        {content && <AutoPlayCarousel content={content} media_type="movie" />}
       </div>
       {numOfPages > 1 && (
         <CustomPagination setPage={setPage} numOfPages={numOfPages} />
