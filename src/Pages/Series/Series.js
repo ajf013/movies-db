@@ -4,6 +4,7 @@ import Genres from "../../components /Genres/Genres";
 import CustomPagination from "../../components /Pagination/CustomPagination";
 import SingleContent from "../../components /SingleContent/SingleContent";
 import useGenre from "../../hooks/useGenre";
+import "./Series.css";
 
 const Series = () => {
   const [genres, setGenres] = useState([]);
@@ -39,7 +40,7 @@ const Series = () => {
         setGenres={setGenres}
         setPage={setPage}
       />
-      <div className="trending">
+      <div className="series-container">
         {content &&
           content.map((c) => (
             <SingleContent

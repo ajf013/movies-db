@@ -1,5 +1,29 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600;700&display=swap");
 @import "react-alice-carousel/lib/alice-carousel.css";
+
+:root {
+  /* Dark theme colors */
+  --dark-bg: #1a1d29;
+  --dark-bg-secondary: #39445a;
+  --dark-text: #ffffff;
+  --dark-text-secondary: #e0e0e0;
+  --dark-accent: #6c5ce7;
+
+  /* Light theme colors */
+  --light-bg: #f5f6fa;
+  --light-bg-secondary: #ffffff;
+  --light-text: #2d3436;
+  --light-text-secondary: #636e72;
+  --light-accent: #6c5ce7;
+
+  /* Common colors */
+  --shadow: rgba(0, 0, 0, 0.2);
+  --shadow-light: rgba(0, 0, 0, 0.1);
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
 
 a {
   text-decoration: none;
@@ -13,6 +37,18 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* Dark theme */
+body.dark {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Light theme */
+body.light {
+  background-color: var(--light-bg);
+  color: var(--light-text);
 }
 
 code {

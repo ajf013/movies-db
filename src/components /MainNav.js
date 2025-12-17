@@ -7,13 +7,13 @@ import MovieIcon from "@material-ui/icons/Movie";
 import SearchIcon from "@material-ui/icons/Search";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import { useHistory } from "react-router-dom";
+import { useTheme } from "../context/ThemeContext";
 
 const useStyles = makeStyles({
   root: {
     width: "100%",
     position: "fixed",
     bottom: 0,
-    backgroundColor: "#2d313a",
     zIndex: 100,
   },
 });
@@ -22,6 +22,7 @@ export default function SimpleBottomNavigation() {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
   const history = useHistory();
+  const { theme } = useTheme();
 
   useEffect(() => {
     if (value === 0) {
@@ -35,6 +36,17 @@ export default function SimpleBottomNavigation() {
     }
   }, [value, history]);
 
+  const navStyle = {
+    backgroundColor: theme === 'dark' ? '#2d313a' : '#ffffff',
+    boxShadow: theme === 'dark'
+      ? '0 -4px 20px rgba(0, 0, 0, 0.3)'
+      : '0 -4px 20px rgba(0, 0, 0, 0.1)',
+  };
+
+  const actionStyle = {
+    color: theme === 'dark' ? '#ffffff' : '#2d3436',
+  };
+
   return (
     <BottomNavigation
       value={value}
@@ -43,24 +55,25 @@ export default function SimpleBottomNavigation() {
       }}
       showLabels
       className={classes.root}
+      style={navStyle}
     >
       <BottomNavigationAction
-        style={{ color: "white" }}
+        style={actionStyle}
         label="Trending"
         icon={<WhatshotIcon />}
       />
       <BottomNavigationAction
-        style={{ color: "white" }}
+        style={actionStyle}
         label="Movies"
         icon={<MovieIcon />}
       />
       <BottomNavigationAction
-        style={{ color: "white" }}
+        style={actionStyle}
         label="TV Series"
         icon={<TvIcon />}
       />
       <BottomNavigationAction
-        style={{ color: "white" }}
+        style={actionStyle}
         label="Search"
         icon={<SearchIcon />}
       />

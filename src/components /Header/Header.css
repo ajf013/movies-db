@@ -1,22 +1,131 @@
 .header {
-    width: 100%;
-    cursor: pointer;
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    text-transform: uppercase;
-    background-color: #39445a;
-    font-family: "Montserrat", sans-serif;
-    font-size: 3vw;
-    padding-bottom: 15px;
-    box-shadow: 0px 1px 5px black;
-    color: white;
-    z-index: 100;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2.5vw;
+  font-weight: 700;
+  padding: 12px 20px;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+body.dark .header {
+  background: linear-gradient(135deg, #2d3561 0%, #39445a 100%);
+  color: #ffffff;
+}
+
+body.light .header {
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  color: #2d3436;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header-title {
+  cursor: pointer;
+  background: linear-gradient(90deg, #6c5ce7, #a29bfe, #6c5ce7);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite;
+  transition: transform 0.3s ease;
+  letter-spacing: 3px;
+}
+
+.header-title:hover {
+  transform: scale(1.05);
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
   }
-  
-  @media (max-width: 1000px) {
-    .header {
-      padding-top: 15px;
-      font-size: 6.4vw;
-    }
+
+  50% {
+    background-position: 100% center;
   }
+
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.theme-toggle {
+  position: absolute;
+  right: 20px;
+  background: transparent;
+  border: 2px solid;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+body.dark .theme-toggle {
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+}
+
+body.light .theme-toggle {
+  border-color: rgba(45, 52, 54, 0.3);
+  color: #2d3436;
+}
+
+.theme-toggle:hover {
+  transform: rotate(180deg) scale(1.1);
+  box-shadow: 0 0 20px rgba(108, 92, 231, 0.5);
+}
+
+body.dark .theme-toggle:hover {
+  background: rgba(108, 92, 231, 0.2);
+  border-color: #6c5ce7;
+}
+
+body.light .theme-toggle:hover {
+  background: rgba(108, 92, 231, 0.1);
+  border-color: #6c5ce7;
+}
+
+@media (max-width: 1000px) {
+  .header {
+    padding: 10px 15px;
+    font-size: 5vw;
+  }
+
+  .header-title {
+    letter-spacing: 2px;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+    right: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .header {
+    font-size: 6vw;
+  }
+
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+    right: 10px;
+  }
+}

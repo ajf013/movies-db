@@ -1,0 +1,59 @@
+.movies-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 15px;
+    padding: 20px 10px;
+    scroll-behavior: smooth;
+    position: relative;
+    animation: scroll-right-to-left 30s linear infinite;
+}
+
+.movies-container:hover {
+    animation-play-state: paused;
+}
+
+/* Hide scrollbar but keep functionality */
+.movies-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+body.dark .movies-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+body.light .movies-container::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+}
+
+body.dark .movies-container::-webkit-scrollbar-thumb {
+    background: rgba(108, 92, 231, 0.5);
+    border-radius: 10px;
+}
+
+body.light .movies-container::-webkit-scrollbar-thumb {
+    background: rgba(108, 92, 231, 0.4);
+    border-radius: 10px;
+}
+
+.movies-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(108, 92, 231, 0.8);
+}
+
+@keyframes scroll-right-to-left {
+    0% {
+        scroll-behavior: auto;
+    }
+
+    100% {
+        scroll-behavior: auto;
+    }
+}
+
+/* Ensure items don't shrink */
+.movies-container>* {
+    flex-shrink: 0;
+}

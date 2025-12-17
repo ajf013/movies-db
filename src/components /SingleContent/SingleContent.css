@@ -1,41 +1,68 @@
 .media {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    padding: 5px;
-    margin: 5px 0;
-    background-color: #282c34;
-    border-radius: 10px;
-    position: relative;
-    font-family: "Montserrat", sans-serif;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 10px;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .media {
+  background-color: #282c34;
+  color: #ffffff;
+}
+
+body.light .media {
+  background-color: #ffffff;
+  color: #2d3436;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.media:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+}
+
+body.dark .media:hover {
+  background-color: #6c5ce7;
+  color: white;
+}
+
+body.light .media:hover {
+  background-color: #6c5ce7;
+  color: white;
+}
+
+@media (max-width: 550px) {
+  .media {
+    width: 46%;
   }
-  
-  .media:hover {
-    background-color: white;
-    color: black;
-  }
-  
-  @media (max-width: 550px) {
-    .media {
-      width: 46%;
-    }
-  }
-  
-  .poster {
-    border-radius: 10px;
-  }
-  
-  .title {
-    width: 100%;
-    text-align: center;
-    font-size: 17px;
-    padding: 8px 0;
-  }
-  
-  .subTitle {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 3px;
-    padding: 0 2px;
-    padding-bottom: 3px;
-  }
+}
+
+.poster {
+  border-radius: 10px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.title {
+  width: 100%;
+  text-align: center;
+  font-size: 17px;
+  padding: 8px 0;
+  font-weight: 600;
+}
+
+.subTitle {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 3px;
+  padding: 0 2px;
+  padding-bottom: 3px;
+  font-size: 14px;
+  opacity: 0.9;
+}
