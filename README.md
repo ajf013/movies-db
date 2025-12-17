@@ -4,7 +4,7 @@
 
 ### [Live Site](https://moviesdbreact.netlify.app/) 
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/4b462196-64de-4d26-88aa-c7c227f4c68f/deploy-status)](https://app.netlify.com/projects/moviesdbreact/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/4b462196-64de-4d26-88aa-c7c227f4c68f/deploy-status?branch=main)](https://app.netlify.com/projects/moviesdbreact/deploys)
 
 # Installation
 
